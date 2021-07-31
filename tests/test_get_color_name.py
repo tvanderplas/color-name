@@ -59,5 +59,59 @@ class TestGetColorName(unittest.TestCase):
             self.assertEqual(actual, expected, msg=msg)
 
 
+    def test_gets_yellow(self):
+        cases = [
+            (102, 102, 0),
+            (153, 153, 0),
+            (204, 204, 0),
+            (255, 255, 0),
+            (255, 255, 51),
+            (255, 255, 102),
+            (255, 255, 153),
+            (255, 255, 204),
+        ]
+        for case in cases:
+            expected = 'yellow'
+            actual = get_color_name(*case)
+            msg = f'actual result for {case} was {actual}, expected {expected}'
+            self.assertEqual(actual, expected, msg=msg)
+
+
+    def test_gets_cyan(self):
+        cases = [
+            (0,   153, 153),
+            (0,   102, 102),
+            (0,   204, 204),
+            (0,   255, 255),
+            (51,  255, 255),
+            (102, 255, 255),
+            (153, 255, 255),
+            (204, 255, 255),
+        ]
+        for case in cases:
+            expected = 'cyan'
+            actual = get_color_name(*case)
+            msg = f'actual result for {case} was {actual}, expected {expected}'
+            self.assertEqual(actual, expected, msg=msg)
+
+
+    def test_gets_magenta(self):
+        cases = [
+            (102, 0,   102),
+            (153, 0,   153),
+            (204, 0,   204),
+            (255, 0,   255),
+            (255, 51,  255),
+            (255, 102, 255),
+            (255, 153, 255),
+            (255, 204, 255),
+        ]
+        for case in cases:
+            expected = 'magenta'
+            actual = get_color_name(*case)
+            msg = f'actual result for {case} was {actual}, expected {expected}'
+            self.assertEqual(actual, expected, msg=msg)
+
+
 if __name__ == '__main__':
     unittest.main()

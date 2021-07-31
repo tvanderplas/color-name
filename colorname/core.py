@@ -11,12 +11,16 @@ def get_color_name(r, g, b):
         return "white"
     elif h < 30 or h >= 330:
         return "red"
-    elif 210 <= h < 270:
-        return "blue"
+    elif 30 <= h < 90:
+        return "yellow"
     elif 90 <= h < 150:
         return "green"
-    elif r > 95 and g > 95 and b < 60:
-        return "yellow"
+    elif 150 <= h < 210:
+        return "cyan"
+    elif 210 <= h < 270:
+        return "blue"
+    elif 270 <= h < 330:
+        return "magenta"
     else:
         return "unknown"
 
