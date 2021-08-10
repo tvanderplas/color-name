@@ -147,5 +147,22 @@ class TestGetColorName(unittest.TestCase):
             self.assertEqual(actual, expected, msg=msg)
 
 
+    def test_gets_gray(self):
+        cases = [
+            (139, 116, 116),
+            (116, 139, 116),
+            (116, 116, 139),
+            (139, 139, 116),
+            (116, 139, 139),
+            (139, 116, 139),
+            (139, 139, 139),
+        ]
+        for case in cases:
+            expected = 'black'
+            actual = get_color_name(*case)
+            msg = f'actual result for {case} was {actual}, expected {expected}'
+            self.assertEqual(actual, expected, msg=msg)
+
+
 if __name__ == '__main__':
     unittest.main()
