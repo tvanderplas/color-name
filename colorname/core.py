@@ -3,12 +3,15 @@ from PIL import ImageGrab
 import colorsys
 
 def get_color_name(r, g, b):
-    h, s, v = colorsys.rgb_to_hsv(r, g, b)
+    h, l, s = colorsys.rgb_to_hls(r / 255, g / 255, b / 255)
+    print(h, s, l)
     h *= 360
-    if r < 15 and g < 15 and b < 15:
+    if l < .1:
         return "black"
-    elif r > 220 and g > 220 and b > 220:
+    elif l > .9:
         return "white"
+    elif s < .1:
+        return "gray"
     elif h < 30 or h >= 330:
         return "red"
     elif 30 <= h < 90:
@@ -32,3 +35,4 @@ def get_pixel_color_name(x, y):
     '''Returns the name of a color at the given pixel coordinates'''
     color = get_pixel_color(x, y)
     return get_color_name(*color)
+

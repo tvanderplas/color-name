@@ -158,7 +158,7 @@ class TestGetColorName(unittest.TestCase):
             (139, 139, 139),
         ]
         for case in cases:
-            expected = 'black'
+            expected = 'gray'
             actual = get_color_name(*case)
             msg = f'actual result for {case} was {actual}, expected {expected}'
             self.assertEqual(actual, expected, msg=msg)
